@@ -32,6 +32,6 @@ def subtract_files(exclude_file, source_file, output_file):
 
 if __name__ == '__main__':
     if len(sys.argv) != 4:
-        print('Usage: python files_subtract.py exclude_file source_file output_file')
+        print('Usage: python subtract_files.py exclude_file source_file output_file')
     else:
         subtract_files(sys.argv[1], sys.argv[2], sys.argv[3])
