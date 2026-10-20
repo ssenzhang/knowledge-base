@@ -26,7 +26,7 @@ void hwk_5_59()
 
 unsigned replace_byte(unsigned x, int i, unsigned char b)
 {
-    return (x & ~(0xFF << (i * 8))) | (b << (i * 8));
+    return (x & ~(0xFF << (i * sizeof(unsigned)))) | (b << (i * sizeof(unsigned)));
 }
 
 int main()
