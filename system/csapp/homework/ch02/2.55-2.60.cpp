@@ -29,6 +29,11 @@ unsigned replace_byte(unsigned x, int i, unsigned char b)
     return (x & ~(0xFF << (i * sizeof(unsigned)))) | (b << (i * sizeof(unsigned)));
 }
 
+unsigned char get_msb(int x)
+{
+    return (x  >> ((sizeof(int) - 1) << 3)) & 0xff;
+}
+
 int main()
 {
     short one = 1;
@@ -52,4 +57,8 @@ int main()
 
     std::cout << std::hex << replace_byte(0x12345678, 2, 0xAB) << std::endl;
     std::cout << std::hex << replace_byte(0x12345678, 0, 0xAB) << std::endl;
+
+    int i2 = 0x1234567;
+    show_bytes((void*)&i2, sizeof(i2));
+    std::cout << std::setw(2) << std::setfill('0') << std::hex << (unsigned short)get_msb(i2) << std::endl;
 }
